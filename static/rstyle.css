@@ -1,0 +1,46 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url('Utech_logo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: sans-serif;
+}
+
+p
+{
+    
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: left;
+    font-size: 14px;
+}
+
+h1{
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: left;
+    font-size: 24px;
+}
+
+h3{
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: left;
+    font-size: 24px;
+}
+
+
+::placeholder{
+    color:#1c8adb;
+    opacity:1;
+}
+

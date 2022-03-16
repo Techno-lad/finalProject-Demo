@@ -1,0 +1,245 @@
+{% extends 'base0.html' %}
+{% load static %}
+
+
+{% block title %}{{user.username}}{% endblock title %}
+
+{% block scripts %}
+<script>
+
+ 
+
+/*javascript function for calling Jquery chart function starts here*/  
+ function openNav(chrtType = 'pie') {
+  
+/*javascript function for calling Jquery chart function ends here here*/  
+/*Jquery function for charts begin here*/
+    $(document).ready(function(){
+         
+     
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: chrtType,
+            data: {
+                
+                labels: ['College Math', 'Database Design', 'Information Technology','Database Design','Object-Oriented Programming','Data structures','Discrete Math', 'Software Engineering','Thoery of Computation','Artificial Intelligence'], 
+                datasets: [{
+                    label: 'Previous Modules Comparision',
+                    data: [82, 50, 93, 85, 22,75,29,97,79,90],
+                
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                         
+                        
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                         'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    });
+
+     
+   }
+
+   /* openNav1 begins just after here */
+   function openNav1(chrtType = 'pie') {
+       $(document).ready(function(){
+        
+        var ctx = document.getElementById('myChart1').getContext('2d');
+        var myChart1 = new Chart(ctx, {
+            type: chrtType,
+            data: {
+                
+               labels: [{% for  item in qs %}'{{item.assesment}}',{% endfor %}], 
+                datasets: [{
+                    label: 'Rojay Assignment analysis',
+                    data: [{% for item in qs %}{{item.gradePercentage}},{% endfor %}],
+                
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+              
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+               
+            }
+        });
+
+  });
+}
+
+
+
+ function openNav2(chrtType = 'pie') {
+       $(document).ready(function(){
+        
+        var ctx = document.getElementById('myChart2').getContext('2d');
+        var myChart2 = new Chart(ctx, {
+            type: chrtType,
+            data: {
+                
+                labels: [{% for  item in qs %}'{{item.assesment}}',{% endfor %}], 
+                datasets: [{
+                    label: 'Rojay Assignment analysis',
+                    data: [{% for item in qs %}{{item.gradePercentage}},{% endfor %}],
+                
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+              
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+               
+            }
+        });
+
+  });
+}
+
+
+
+
+function closeNav() {
+  location.reload();
+  }
+  
+
+function def() {
+    alert("Community Service," + "Environmental Science," + "Computer Networks");
+  
+    }
+
+    openNav('horizontalBar')
+
+    
+</script>
+
+{% endblock scripts %}
+
+
+{% block content %}
+  
+<div  class="navbar">    
+  <div class="dropdown">
+    <button  class="dropbtn">MORE 
+      <i class="fa fa-caret-down"></i>
+    </button>
+
+    <div class="dropdown-content">
+      
+      
+      <a href="javascript:void(0)">Sample_Module_Chart_Options</a>
+        <ul>
+                <li><a href="javascript:void(0)"  onclick="openNav1('polarArea')">PolarArea</a></li>
+                <li><a href="javascript:void(0)"  onclick="openNav2('doughnut')">Doughnut</a></li>
+        </ul> 
+      <a href="javascript:void(0)"  onclick="def()">Deffered_Modules</a>
+      <a href="javascript:void(0)"  onclick="closeNav()">Main_DashBoard_View</a>
+      <a href="accounts/logout">logout</a>
+    </div>
+  </div> 
+</div>
+
+
+<div class = "mainbox"  >  
+ <canvas class="boss"   id="myChart" width="5" height="2.5"></canvas>                   
+</div> 
+
+<div class = "mainbox"  >  
+ <canvas class="boss"   id="myChart1" width="5" height="2.5"></canvas>                   
+</div> 
+
+<div class = "mainbox"  >  
+ <canvas class="boss"   id="myChart2" width="5" height="2.5"></canvas>                   
+</div> 
+
+<p style="color:white">Percentage of Credits Acquired: </p>
+<div class="container">
+  <div class="skills html">90%</div>
+</div>
+
+
+<button onclick="getRndInteger(0.0,4.0)">View Gpa</button>
+<button onclick="sumInput()">Best possible grade outcome</button>
+
+
+
+
+
+
+
+
+
+{% endblock content %}
+
